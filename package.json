@@ -1,11 +1,12 @@
 {
-  "name": "your-app",
+  "name": "dtoplist",
   "description": "Description",
-  "author": "Your Name",
+  "author": "DanielFGray <DanielFGray@gmail.com>",
+  "license": "GPL-3.0",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/DanielFGray/dtoplist"
   },
   "scripts": {
     "start": "brunch watch --server",

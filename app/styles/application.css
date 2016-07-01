@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, system, sans-serif;
+}
+
+body {
+  margin: 10px;
+  overflow: auto;
+}
+
+#app {
+  overflow: auto;
+}
+
+a {
+  cursor: pointer;
+}

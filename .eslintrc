@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "no-console": 0,
+    "comma-dangle": 0,
+    "comma-style": [ 1, "first" ], // some men just want to watch the world burn
+    "react/prefer-stateless-function": 0,
+    "array-bracket-spacing": 0
+  }
+}
+
+// vim:ft=json

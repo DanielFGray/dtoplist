@@ -47,6 +47,7 @@ export default class App extends Component {
         {this.state.currentNick ?
           <DtopList
             dtops={this.state.dtops.find(e => e.nick === this.state.currentNick).urls}
+            nick={this.state.currentNick}
           />
         : null}
       </div>

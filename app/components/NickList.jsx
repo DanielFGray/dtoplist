@@ -5,11 +5,14 @@ export default class NickList extends Component {
 
   render() {
     return (
-      <div style={{ display: 'block-inline', float: 'right' }}>
+      <div style={{ display: 'block-inline' }} className="pull-right">
         <div>{this.props.nicks.length} users shown</div>
         <ul>
-          {this.props.nicks.map(e =>
-            <li key={e}><a onClick={this.props.clickNick}>{e}</a></li>)}
+          {this.props.nicks.map(e => (
+            <li key={e}>
+              <a onClick={this.props.clickNick}>{e}</a>
+            </li>
+          ))}
         </ul>
       </div>
     );

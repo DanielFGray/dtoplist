@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import request from 'superagent';
+
 import NickList from './NickList';
 import DtopList from './DtopList';
 

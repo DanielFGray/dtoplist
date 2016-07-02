@@ -15,3 +15,9 @@ body {
 a {
   cursor: pointer;
 }
+
+footer {
+  text-align: center;
+  font-size: smaller;
+  font-style: italic;
+}

@@ -1,12 +1,14 @@
 {
   "name": "dtoplist",
-  "description": "Description",
   "author": "DanielFGray <DanielFGray@gmail.com>",
   "license": "GPL-3.0",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DanielFGray/dtoplist"
+    "url": "https://gitlab.com/DanielFGray/dtoplist"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/DanielFGray/dtoplist/issues"
   },
   "scripts": {
     "start": "brunch watch --server",

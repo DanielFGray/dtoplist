@@ -7,7 +7,6 @@ import DtopList from './DtopList';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.clickNick = this.clickNick.bind(this);
     this.state =
       { dtops: []
       , currentNick: ''
@@ -29,7 +28,7 @@ export default class App extends Component {
       });
   }
 
-  clickNick(e) {
+  clickNick = (e) => {
     this.setState({ currentNick: e.target.text });
   }
 

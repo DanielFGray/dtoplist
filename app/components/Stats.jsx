@@ -14,7 +14,11 @@ export default function Stats(props) {
     <div style={{ width: '95%', margin: '0 auto' }}>
       <h3>Most popular hosts</h3>
       <ol>
-        {stats.slice(0, 10).map(e => (<li key={e.domain}>{e.domain}: {e.count}</li>))}
+        {stats.slice(0, 10).map(e => (
+          <li key={e.domain}>
+            <a href={`http://${e.domain}`}>{e.domain}</a>: {e.count}
+          </li>
+        ))}
       </ol>
     </div>
   );

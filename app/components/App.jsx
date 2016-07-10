@@ -19,9 +19,8 @@ export default class App extends Component {
       .query({ server: 'Rizon', db: 'desktops' })
       .set('Accept', 'application/json')
       .end((err, res) => {
-        const json = JSON.parse(res.text);
-        const array = Object.keys(json)
-          .map(nick => ({ nick, urls: json[nick] }))
+        const array = Object.keys(res.body)
+          .map(nick => ({ nick, urls: res.body[nick] }))
           .filter(e => e.urls.length > 0)
           .reverse();
         this.setState({ dtops: array });

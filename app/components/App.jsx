@@ -3,6 +3,7 @@ import request from 'superagent';
 
 import NickList from './NickList';
 import DtopList from './DtopList';
+import Stats from './Stats';
 
 export default class App extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ export default class App extends Component {
             nick={this.state.currentNick}
           />
         : null}
+        <Stats dtops={this.state.dtops} />
       </div>
     );
   }

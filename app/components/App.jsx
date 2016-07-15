@@ -14,7 +14,7 @@ export default class App extends Component {
     this.state =
       { dtops: []
       , currentNick: this.props.params.nick
-      , message: 'Fetching'
+      , message: 'Fetching...'
       };
   }
 
@@ -46,11 +46,14 @@ export default class App extends Component {
 
   render() {
     if (this.state.message !== '') {
-      return (<div style={{ textAlign: 'center' }}>{this.state.message}</div>);
+      return (<div style={{ textAlign: 'center', margin: '15px' }}>{this.state.message}</div>);
     }
 
     return (
       <div>
+        <div style={{ textAlign: 'left', fontSize: 'smaller', fontStyle: 'italic', margin: '10x' }}>
+          <a href="https://gitlab.com/DanielFGray/dtoplist" target="_blank">Accepting pull requests!</a>
+        </div>
         <NickList
           nicks={this.state.dtops.map(e => e.nick)}
           clickNick={this.clickNick}

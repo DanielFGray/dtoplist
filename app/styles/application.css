@@ -3,21 +3,6 @@
   font-family: -apple-system, system, sans-serif;
 }
 
-body {
-  margin: 10px;
-  overflow: auto;
-}
-
-#app {
-  overflow: auto;
-}
-
 a {
   cursor: pointer;
-}
-
-footer {
-  text-align: center;
-  font-size: smaller;
-  font-style: italic;
 }

@@ -19,7 +19,10 @@ export default class NickList extends Component {
       .filter(n => n.toLowerCase().indexOf(this.state.nickFilter.toLowerCase()) > -1);
 
     return (
-      <div style={{ display: 'block-inline' }} className="pull-right text-right">
+      <div
+        style={{ display: 'block-inline', padding: '10px' }}
+        className="pull-right text-right"
+      >
         <div className="input-control">
           <input
             type="text"
@@ -29,7 +32,7 @@ export default class NickList extends Component {
             onChange={this.filterChange}
           />
         </div>
-        <ul className="list-unstyled">
+        <ul style={{ height: '90vh', overflowY: 'scroll' }} className="list-unstyled">
           {nicks.map(e => (
             <li key={e}>
               <Link to={`/${e}`}>{e}</Link>

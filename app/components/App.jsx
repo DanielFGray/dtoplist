@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import request from 'superagent';
 
 import NickList from './NickList';
@@ -6,6 +6,9 @@ import DtopList from './DtopList';
 import Stats from './Stats';
 
 export default class App extends Component {
+  static propTypes =
+    { params: PropTypes.object }
+
   constructor(props) {
     super(props);
     this.state =

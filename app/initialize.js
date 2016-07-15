@@ -1,7 +1,7 @@
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import React from 'react';
-import App from 'components/App.jsx';
+import App from './components/App';
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<App />, document.querySelector('#app'));
+  render(<App />, document.querySelector('#app'));
 });

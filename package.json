@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "brunch watch --server",
+    "lint": "eslint app",
     "prod": "brunch build --production"
   },
   "dependencies": {

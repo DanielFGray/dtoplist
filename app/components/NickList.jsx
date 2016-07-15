@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 
 export default class NickList extends Component {
   static propTypes = { nicks: PropTypes.array, clickNick: PropTypes.func };
@@ -31,7 +32,7 @@ export default class NickList extends Component {
         <ul className="list-unstyled">
           {nicks.map(e => (
             <li key={e}>
-              <a onClick={this.props.clickNick}>{e}</a>
+              <Link to={`/${e}`}>{e}</Link>
             </li>
           ))}
         </ul>

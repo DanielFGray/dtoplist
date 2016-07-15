@@ -21,7 +21,7 @@ export default function Stats(props) {
       <ol>
         {countDomains(props.dtops).map(e => (
           <li key={e.domain}>
-            <a href={`http://${e.domain}`}>{e.domain}</a>: {e.count}
+            <a href={`http://${e.domain}`} target="_blank">{e.domain}</a>: {e.count}
           </li>
         ))}
       </ol>

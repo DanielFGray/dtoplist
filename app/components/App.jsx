@@ -10,7 +10,7 @@ export default class App extends Component {
     super(props);
     this.state =
       { dtops: []
-      , currentNick: ''
+      , currentNick: this.props.params.nick
       , message: 'Fetching'
       };
   }
@@ -31,6 +31,10 @@ export default class App extends Component {
           this.setState({ message: '', dtops });
         }
       });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ currentNick: nextProps.params.nick });
   }
 
   clickNick = (e) => {

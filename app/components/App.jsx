@@ -7,7 +7,8 @@ import Stats from './Stats';
 
 export default class App extends Component {
   static propTypes =
-    { params: PropTypes.object }
+    { params: PropTypes.object
+    }
 
   constructor(props) {
     super(props);

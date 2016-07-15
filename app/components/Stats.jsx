@@ -32,4 +32,3 @@ export default function Stats(props) {
 Stats.propTypes =
   { dtops: PropTypes.array
   };
-

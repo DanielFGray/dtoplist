@@ -2,15 +2,19 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
 export default class NickList extends Component {
-  static propTypes = { nicks: PropTypes.array, clickNick: PropTypes.func };
+  static propTypes =
+    { nicks: PropTypes.array
+    , clickNick: PropTypes.func
+    }
 
   constructor(props) {
     super(props);
-    this.filterChange = this.filterChange.bind(this);
-    this.state = { nickFilter: '' };
+    this.state =
+      { nickFilter: ''
+      };
   }
 
-  filterChange(e) {
+  filterChange = (e) => {
     this.setState({ nickFilter: e.target.value });
   }
 

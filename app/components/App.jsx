@@ -11,6 +11,7 @@ export default class App extends Component {
     this.state =
       { dtops: []
       , currentNick: ''
+      , message: 'Fetching'
       };
   }
 
@@ -20,11 +21,15 @@ export default class App extends Component {
       .query({ server: 'Rizon', db: 'desktops' })
       .set('Accept', 'application/json')
       .end((err, res) => {
-        const array = Object.keys(res.body)
-          .map(nick => ({ nick, urls: res.body[nick] }))
-          .filter(e => e.urls.length > 0)
-          .reverse();
-        this.setState({ dtops: array });
+        if (err) {
+          console.log(err);
+        } else {
+          const dtops = Object.keys(res.body)
+            .map(nick => ({ nick, urls: res.body[nick] }))
+            .filter(e => e.urls.length > 0)
+            .reverse();
+          this.setState({ message: '', dtops });
+        }
       });
   }
 
@@ -33,8 +38,8 @@ export default class App extends Component {
   }
 
   render() {
-    if (this.state.dtops.length === 0) {
-      return (<div style={{ textAlign: 'center' }}>Fetching...</div>);
+    if (this.state.message !== '') {
+      return (<div style={{ textAlign: 'center' }}>{this.state.message}</div>);
     }
 
     return (

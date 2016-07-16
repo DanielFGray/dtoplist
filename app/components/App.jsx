@@ -2,14 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import request from 'superagent';
 
 import NickList from './NickList';
-import DtopList from './DtopList';
-import Stats from './Stats';
+import { DtopList } from './DtopList';
+import { Stats } from './Stats';
 
 export default class App extends Component {
-  static propTypes =
-    { params: PropTypes.object
-    }
-
   constructor(props) {
     super(props);
     this.state =
@@ -51,22 +47,30 @@ export default class App extends Component {
     }
 
     return (
-      <div>
-        <div style={{ textAlign: 'left', fontSize: 'smaller', fontStyle: 'italic', margin: '10x' }}>
-          <a href="https://gitlab.com/DanielFGray/dtoplist" target="_blank">Accepting pull requests!</a>
-        </div>
-        <NickList
-          nicks={this.state.dtops.map(e => e.nick)}
-          clickNick={this.clickNick}
-        />
-        {this.state.currentNick ?
-          <DtopList
-            dtops={this.state.dtops.find(e => e.nick === this.state.currentNick).urls}
-            nick={this.state.currentNick}
+      <div className="container">
+        <div className="row">
+          <NickList
+            nicks={this.state.dtops.map(e => e.nick)}
+            clickNick={this.clickNick}
           />
-        : null}
-        <Stats dtops={this.state.dtops} />
+          {this.state.currentNick ?
+            <DtopList
+              dtops={this.state.dtops.find(e => e.nick === this.state.currentNick).urls}
+              nick={this.state.currentNick}
+            />
+            : null}
+          <Stats dtops={this.state.dtops} />
+        </div>
+        <div className="row">
+          <div className="gitLink">
+            <a href="https://gitlab.com/DanielFGray/dtoplist" target="_blank">Accepting pull requests!</a>
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+App.propTypes =
+  { params: PropTypes.object
+  };

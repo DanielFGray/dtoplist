@@ -2,11 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
 export default class NickList extends Component {
-  static propTypes =
-    { nicks: PropTypes.array
-    , clickNick: PropTypes.func
-    }
-
   constructor(props) {
     super(props);
     this.state =
@@ -23,20 +18,17 @@ export default class NickList extends Component {
       .filter(n => n.toLowerCase().indexOf(this.state.nickFilter.toLowerCase()) > -1);
 
     return (
-      <div
-        style={{ display: 'block-inline', padding: '10px' }}
-        className="pull-right text-right"
-      >
-        <div className="input-control">
+      <div className="nickList paper col-md-3">
+        <div className="form-group">
           <input
             type="text"
-            className="input-control"
+            className="form-control"
             placeholder="search for a name"
             value={this.state.nickFilter}
             onChange={this.filterChange}
           />
         </div>
-        <ul style={{ height: '90vh', overflowY: 'scroll' }} className="list-unstyled">
+        <ul className="list-unstyled">
           {nicks.map(e => (
             <li key={e}>
               <Link to={`/${e}`}>{e}</Link>
@@ -47,3 +39,8 @@ export default class NickList extends Component {
     );
   }
 }
+
+NickList.propTypes =
+  { nicks: PropTypes.array
+  , clickNick: PropTypes.func
+  };

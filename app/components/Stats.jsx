@@ -14,20 +14,19 @@ function countDomains(dtops) {
   return stats;
 }
 
-export default function Stats(props) {
-  return (
-    <div style={{ width: '95%', margin: '0 auto' }}>
-      <h3>Most popular hosts</h3>
-      <ol>
-        {countDomains(props.dtops).map(e => (
-          <li key={e.domain}>
-            <a href={`http://${e.domain}`} target="_blank">{e.domain}</a>: {e.count}
-          </li>
-        ))}
-      </ol>
-    </div>
-  );
-}
+export const Stats = (props) => (
+  <div className="statsList paper col-md-12">
+    <h3>Most popular hosts</h3>
+    <ol>
+      {countDomains(props.dtops).map(e => (
+        <li key={e.domain}>
+          <a href={`http://${e.domain}`} target="_blank">{e.domain}</a>: {e.count}
+        </li>
+      ))}
+    </ol>
+  </div>
+);
+
 
 Stats.propTypes =
   { dtops: PropTypes.array

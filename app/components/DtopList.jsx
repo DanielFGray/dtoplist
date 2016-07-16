@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
 const embedFromUrl = (url) => {
   let e = url;
@@ -10,23 +10,22 @@ const embedFromUrl = (url) => {
   return e;
 };
 
-export default class DtopList extends Component {
-  static propTypes = { dtops: PropTypes.array, nick: PropTypes.string };
+export const DtopList = (props) => (
+  <div className="dtopList paper col-md-8">
+    <h2>{props.nick}</h2>
+    <ul>
+      {props.dtops.map(e => (
+        <li key={e}>
+          <a href={e} target="dtops">
+            {embedFromUrl(e)}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
-  render() {
-    return (
-      <div style={{ display: 'block-inline', overflow: 'auto' }} className="text-center">
-        <h2>{this.props.nick}</h2>
-        <ul style={{ display: 'block-inline' }} className="list-unstyled">
-          {this.props.dtops.map(e => (
-            <li key={e} style={{ display: 'block-inline', paddingBottom: '10px' }}>
-              <a href={e} target="dtops">
-                {embedFromUrl(e)}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-}
+DtopList.propTypes =
+  { dtops: PropTypes.array
+  , nick: PropTypes.string
+  };

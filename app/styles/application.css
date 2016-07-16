@@ -3,6 +3,55 @@
   font-family: -apple-system, system, sans-serif;
 }
 
+body {
+  background-color: #eee;
+}
+
 a {
   cursor: pointer;
+}
+
+.mainContainer {
+  display: block;
+}
+
+.paper {
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.12), 0px 1px 4px rgba(0, 0, 0, 0.12);
+  /* box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16), 0px 3px 10px rgba(0, 0, 0, 0.23); */
+}
+
+.dtopList {
+  padding: 10px;
+  text-align: center;
+}
+
+.dtopList h2 {
+  margin: 0 0 10px 0;
+}
+
+.dtopList ul {
+  list-style: none;
+}
+
+.nickList {
+  text-align: left;
+}
+
+.nickList ul {
+  list-style: none;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.statsList {
+  width: 20em;
+}
+
+.gitLink {
+  text-align: center;
+  font-size: smaller;
+  font-style: italic;
 }

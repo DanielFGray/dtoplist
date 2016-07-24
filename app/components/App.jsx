@@ -25,7 +25,7 @@ export default class App extends Component {
           console.log(err);
         } else {
           const dtops = Object.keys(res.body)
-            .map(nick => ({ nick, urls: res.body[nick] }))
+            .map(nick => ({ nick, urls: res.body[nick].filter(u => u.indexOf('pomf.se') === -1) }))
             .filter(e => e.urls.length > 0)
             .reverse();
           this.setState({ message: '', dtops });

@@ -14,9 +14,18 @@ function countDomains(dtops) {
   return stats;
 }
 
+function countLinks(dtops) {
+  return dtops.reduce((a, c) => a + c.urls.length, 0);
+}
+
 export const Stats = (props) => (
   <div className="statsList paper col-md-12">
-    <h3>Most popular hosts</h3>
+    <h3>Stats</h3>
+    <ul>
+      <li>Users: {props.dtops.length}</li>
+      <li>Total links: {countLinks(props.dtops)}</li>
+    </ul>
+    <div>Most popular hosts:</div>
     <ol>
       {countDomains(props.dtops).map(e => (
         <li key={e.domain}>

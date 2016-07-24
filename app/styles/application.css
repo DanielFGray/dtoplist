@@ -36,6 +36,14 @@ a {
   list-style: none;
 }
 
+.dtopList li {
+  margin: 20px;
+}
+
+.dtopList img, .dtopList video {
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16), 0px 3px 10px rgba(0, 0, 0, 0.23);
+}
+
 .nickList {
   text-align: left;
 }

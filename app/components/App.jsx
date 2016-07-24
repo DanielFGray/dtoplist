@@ -50,7 +50,7 @@ export default class App extends Component {
       <div className="container">
         <div className="row">
           <NickList
-            nicks={this.state.dtops.map(e => e.nick)}
+            nicks={this.state.dtops.map(e => ({ nick: e.nick, dtops: e.urls.length }))}
             clickNick={this.clickNick}
           />
           {this.state.currentNick ?

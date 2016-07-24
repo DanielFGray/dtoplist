@@ -15,7 +15,7 @@ export default class NickList extends Component {
 
   render() {
     const nicks = this.props.nicks
-      .filter(n => n.toLowerCase().indexOf(this.state.nickFilter.toLowerCase()) > -1);
+      .filter(n => n.nick.toLowerCase().indexOf(this.state.nickFilter.toLowerCase()) > -1);
 
     return (
       <div className="nickList paper col-md-3">
@@ -30,8 +30,9 @@ export default class NickList extends Component {
         </div>
         <ul className="list-unstyled">
           {nicks.map(e => (
-            <li key={e}>
-              <Link to={`/${e}`}>{e}</Link>
+            <li key={e.nick}>
+              <Link to={`/${e.nick}`}>{e.nick}</Link>
+              <span style={{ color: '#999', marginLeft: '5px', fontSize: 'smaller' }}>{e.dtops}</span>
             </li>
           ))}
         </ul>

@@ -19,7 +19,7 @@ function countLinks(dtops) {
 }
 
 export const Stats = (props) => (
-  <div className="statsList paper col-md-12">
+  <div className="statsList paper col-md-3">
     <h3>Stats</h3>
     <ul>
       <li>Users: {props.dtops.length}</li>

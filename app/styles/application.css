@@ -55,10 +55,6 @@ a {
   overflow-y: auto;
 }
 
-.statsList {
-  width: 20em;
-}
-
 .gitLink {
   text-align: center;
   font-size: smaller;

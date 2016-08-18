@@ -17,7 +17,7 @@ export default class App extends Component {
 
   componentDidMount() {
     request
-      .get('https://joaquinv.net/aigis/database.php')
+      .get('https://api.joaquin-v.xyz/aigis/database.php')
       .query({ server: 'Rizon', db: 'desktops' })
       .set('Accept', 'application/json')
       .end((err, res) => {

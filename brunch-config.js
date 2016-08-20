@@ -16,5 +16,14 @@ module.exports =
         , 'react'
         ]
       }
+    , eslint: {}
+    , uglify:
+      { mangle: false
+      , compress:
+        { global_defs:
+          { DEBUG: false
+          }
+        }
+      }
     }
   };

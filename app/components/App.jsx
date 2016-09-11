@@ -5,6 +5,8 @@ import NickList from './NickList';
 import { DtopList } from './DtopList';
 import { Stats } from './Stats';
 
+import '../styles/application.css';
+
 export default class App extends Component {
   constructor(props) {
     super(props);

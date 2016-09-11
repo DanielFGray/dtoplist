@@ -1,12 +1,16 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
   "rules": {
     "no-console": 0,
     "comma-dangle": 0,
     "comma-style": [ 1, "first" ], // some men just want to watch the world burn
     "react/prefer-stateless-function": 0,
-    "array-bracket-spacing": 0
+    "array-bracket-spacing": 0,
+    "react/jsx-filename-extension": [ 1, { "extensions": [".js", ".jsx"] } ]
   }
 }
 

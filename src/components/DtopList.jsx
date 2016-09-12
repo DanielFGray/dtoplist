@@ -5,7 +5,7 @@ const embedFromUrl = (url) => {
   if (/\.(png|jpe?g|gif)$/.test(url)) {
     e = (<img src={url} role="presentation" width="75%" />);
   } else if (/.webm$/.test(url)) {
-    e = (<video src={url} width="75%" autoPlay="true" loop="forever" />);
+    e = (<video src={url} width="75%" autoPlay="true" controls="true" muted="0" loop="forever" />);
   }
   return e;
 };

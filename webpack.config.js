@@ -6,9 +6,9 @@ module.exports =
   { resolve:
     { extensions: ['', '.js', '.jsx']
     }
-  , entry: './app/initialize.js'
+  , entry: './src/initialize.js'
   , output:
-    { path: __dirname + '/public'
+    { path: __dirname + '/dist'
     , filename: 'bundle.js'
     }
   , module:
@@ -26,7 +26,7 @@ module.exports =
     [ new HtmlWebpackPlugin(
       { inject: 'body'
       , title: 'dtop lists'
-      , template: 'app/assets/index.html'
+        , template: './src/assets/index.html'
       })
     , new webpack.optimize.UglifyJsPlugin(
         { compress:

@@ -11,8 +11,9 @@ pages:
   stage: deploy
   script:
     - npm run prod
+    - npm prune
   artifacts:
     paths:
-      - public
+      - dist
   only:
     - master

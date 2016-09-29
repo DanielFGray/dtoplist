@@ -24,4 +24,4 @@ Thumbs.db
 node_modules/
 
 # output folder.
-dist/
+public/

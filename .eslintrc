@@ -5,14 +5,17 @@
     "browser": true
   },
   "rules": {
-    "no-console": 0,
-    "comma-dangle": 0,
-    "comma-style": [ 1, "first" ],
-    "react/jsx-boolean-value": 0,
-    "array-bracket-spacing": 0,
+    "no-console": 1,
+    "comma-dangle": [ 2, "never" ],
+    "comma-style": [ 2, "first" ],
+    "array-bracket-spacing": [ 2, "always"],
+    "no-unused-vars": 1,
     "no-nested-ternary": 0,
     "no-else-return": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": [ 1 ],
+    "react/forbid-prop-types": 1,
+    "react/prop-types": [ 1 ],
+    "react/jsx-filename-extension": [ 1, { "extensions": [ ".js", ".jsx" ] } ],
     "space-unary-ops": [
       2, {
         "words": true,

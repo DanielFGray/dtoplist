@@ -5,12 +5,13 @@ cache:
     - node_modules/
 
 before_script:
-  - npm install
+  - npm i -g yarn
+  - yarn
 
 pages:
   stage: deploy
   script:
-    - npm run prod
+    - yarn prod
     - npm prune
   artifacts:
     paths:

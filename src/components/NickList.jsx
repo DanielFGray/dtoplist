@@ -1,12 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
-export default class NickList extends Component {
+class NickList extends Component {
   constructor(props) {
     super(props);
-    this.state =
-      { nickFilter: ''
-      };
+    this.state = { nickFilter: '' };
   }
 
   filterChange = (e) => {
@@ -15,7 +13,9 @@ export default class NickList extends Component {
 
   render() {
     const nicks = this.props.nicks
-      .filter(n => n.nick.toLowerCase().indexOf(this.state.nickFilter.toLowerCase()) > -1);
+      .filter(n =>
+        n.nick.toLowerCase()
+          .indexOf(this.state.nickFilter.toLowerCase()) > -1);
 
     return (
       <div className="nickList paper col-md-3">
@@ -32,7 +32,9 @@ export default class NickList extends Component {
           {nicks.map(e => (
             <li key={e.nick}>
               <Link to={`/${e.nick}`}>{e.nick}</Link>
-              <span style={{ color: '#999', marginLeft: '5px', fontSize: 'smaller' }}>{e.dtops}</span>
+              <span style={{ color: '#999', marginLeft: '5px', fontSize: 'smaller' }}>
+                {e.count}
+              </span>
             </li>
           ))}
         </ul>
@@ -41,7 +43,6 @@ export default class NickList extends Component {
   }
 }
 
-NickList.propTypes =
-  { nicks: PropTypes.array
-  , clickNick: PropTypes.func
-  };
+NickList.propTypes = { nicks: PropTypes.array.isRequired };
+
+export default NickList;

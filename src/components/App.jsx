@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import request from 'superagent';
+import axios from 'axios';
+import { orderBy } from 'lodash/collection';
 
 import NickList from './NickList';
-import { DtopList } from './DtopList';
-import { Stats } from './Stats';
+import DtopList from './DtopList';
 
 import '../styles/application.css';
 
@@ -11,61 +11,85 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state =
-      { dtops: []
-      , currentNick: this.props.params.nick
-      , message: 'Fetching...'
-      };
+    { dtops: []
+    , currentNick: this.props.params.nick
+    , message: 'Fetching...'
+    };
   }
 
   componentDidMount() {
-    request
-      .get('https://api.joaquin-v.xyz/aigis/database.php')
-      .query({ server: 'Rizon', db: 'desktops' })
-      .set('Accept', 'application/json')
-      .end((err, res) => {
-        if (err) {
-          console.log(err);
-        } else {
-          const dtops = Object.keys(res.body)
-            .map(nick => ({ nick, urls: res.body[nick].filter(u => u.indexOf('pomf.se') === -1) }))
-            .filter(e => e.urls.length > 0)
-            .reverse();
-          this.setState({ message: '', dtops });
-        }
-      });
+    axios.get('https://ricedb.api.revthefox.co.uk/')
+      .then((res) => {
+        const dtops = Object.keys(res.data)
+          .map(nick => (
+            { nick
+            , ...res.data[nick]
+            }))
+          .filter(e => e.dtops);
+        this.setState({ message: '', dtops: orderBy(dtops, 'nick', 'asc') });
+      })
+      .catch(console.log);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ currentNick: nextProps.params.nick });
+    if (nextProps.params.nick) {
+      this.changeNick(nextProps.params.nick);
+    }
   }
 
-  clickNick = (e) => {
-    this.setState({ currentNick: e.target.text });
+  clickNick = e => this.changeNick(e.target.text);
+
+  changeNick(nick) {
+    if (this.state.dtops.find(e => e.nick === nick)) {
+      this.setState({ currentNick: nick, message: '' });
+    } else {
+      this.setState({ message: `${nick} does not exist` });
+    }
   }
 
   render() {
-    if (this.state.message !== '') {
-      return (<div style={{ textAlign: 'center', margin: '15px' }}>{this.state.message}</div>);
+    if (this.state.message) {
+      const outerStyle =
+        { display: 'flex'
+        , alignItems: 'center'
+        , justifyContent: 'center'
+        , width: '100%'
+        , height: '100%'
+        , padding: '15px'
+        };
+      return (
+        <div style={outerStyle}>
+          <div className="paper" style={{ textAlign: 'center' }}>
+            {this.state.message}
+          </div>
+        </div>
+      );
     }
 
     return (
       <div className="container">
         <div className="row">
           <NickList
-            nicks={this.state.dtops.map(e => ({ nick: e.nick, dtops: e.urls.length }))}
+            nicks={this.state.dtops}
             clickNick={this.clickNick}
           />
           {this.state.currentNick ?
             <DtopList
-              dtops={this.state.dtops.find(e => e.nick === this.state.currentNick).urls}
+              dtops={this.state.dtops
+                .find(e => e.nick === this.state.currentNick).dtops}
               nick={this.state.currentNick}
             />
             : null}
-          <Stats dtops={this.state.dtops} />
         </div>
         <div className="row">
           <div className="gitLink">
-            <a href="https://gitlab.com/DanielFGray/dtoplist" target="_blank">Accepting pull requests!</a>
+            <a
+              href="https://gitlab.com/DanielFGray/dtoplist"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Accepting pull requests!
+            </a>
           </div>
         </div>
       </div>
@@ -73,6 +97,4 @@ export default class App extends Component {
   }
 }
 
-App.propTypes =
-  { params: PropTypes.object
-  };
+App.propTypes = { params: PropTypes.shape({ nick: PropTypes.string }) };

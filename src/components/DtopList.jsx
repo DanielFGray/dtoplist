@@ -5,12 +5,21 @@ const embedFromUrl = (url) => {
   if (/\.(png|jpe?g|gif)$/.test(url)) {
     e = (<img src={url} role="presentation" width="75%" />);
   } else if (/.webm$/.test(url)) {
-    e = (<video src={url} width="75%" autoPlay="true" controls="true" muted="true" loop="forever" />);
+    e = (
+      <video
+        src={url}
+        width="75%"
+        autoPlay="true"
+        controls="true"
+        muted="true"
+        loop="forever"
+      />
+    );
   }
   return e;
 };
 
-export const DtopList = (props) => (
+const DtopList = props => (
   <div className="dtopList paper col-md-8">
     <h2>{props.nick}</h2>
     <ul>
@@ -26,6 +35,8 @@ export const DtopList = (props) => (
 );
 
 DtopList.propTypes =
-  { dtops: PropTypes.array
-  , nick: PropTypes.string
-  };
+{ dtops: PropTypes.array.isRequired
+, nick: PropTypes.string.isRequired
+};
+
+export default DtopList;

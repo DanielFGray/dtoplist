@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
 import App from './components/App';
 
-const Init = (props) => (
+const Init = props => (
   <App {...props} />
 );
 
